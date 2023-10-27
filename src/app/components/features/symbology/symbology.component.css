@@ -1,0 +1,16 @@
+@import url('../../ui/modal/modal.component.css');
+
+.Symbology {
+  height: 400px;
+}
+
+.color-input-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.color-input {
+  border-radius: 10px;
+  cursor: pointer;
+}

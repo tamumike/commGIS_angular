@@ -1,0 +1,10 @@
+.WidgetItem {
+  margin: 4px;
+}
+
+.WidgetItem > button {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  box-shadow: 2px 2px 5px black;
+}

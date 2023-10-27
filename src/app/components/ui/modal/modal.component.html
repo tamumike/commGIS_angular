@@ -1,0 +1,38 @@
+<div id="modal-content-wrapper" #modal>
+  <div class="container" id="modal-container">
+    <header id="modal-header">
+        <h1 id="modal-title"></h1>
+    </header>
+
+    <!-- markup for add as new layer action -->
+    <section *ngIf="modalData.name == 'add-as-new' || modalData.name == 'add-new-map-image'" id="modal-body" class="d-flex">
+      <div>
+        <div class="row">
+          <div class="col mb-4">
+            <h4>Add As New Layer</h4>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">Layer Name</span>
+              <input class="form-control" type="text" id="layerName" #layerName>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer id="modal-footer">
+        <button class="btn btn-primary btn-sm" id="modal-action-button" (click)="actionFunction()">
+            Submit
+        </button>
+        <button class="btn btn-danger btn-sm" id="modal-cancel-button" (click)="closeModal('cancel')">
+            Cancel
+        </button>
+    </footer>
+  </div>
+</div>

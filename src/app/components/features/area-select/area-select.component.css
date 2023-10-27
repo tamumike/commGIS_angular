@@ -1,0 +1,13 @@
+.AreaSelect {
+  position: absolute;
+  /* top: 10px; */
+  left: 175px;
+  background-color:#2B69A2;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  height: 100px;
+  width: 200px;
+  z-index: 15;
+  margin: 1em;
+  color: whitesmoke;
+}

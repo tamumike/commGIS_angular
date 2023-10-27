@@ -1,0 +1,15 @@
+.Sidebar {
+  border: 1px solid whitesmoke;
+  background-color:#2B69A2;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 1em;
+  width: 7vw;
+  min-width: 100px;
+  max-width: 150px;
+  /* min-height: 40vh; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}

@@ -1,0 +1,108 @@
+
+<div class="container Symbology p-2">
+
+  <h5>{{layer.title}}</h5>
+  <h6 style="color: grey;">Change Symbol</h6>
+
+      <div *ngIf="!simpleRenderer">
+        <div class="row mb-2">
+          <div class="col">
+              <app-sizer [label]="dimensionLabel" [(size)]="opacity" [step]="10"></app-sizer>
+          </div>
+        </div>
+      </div>
+        <div *ngIf="simpleRenderer">
+        <!-- POLYGON FORM-->
+        <div class="mt-4"  *ngIf="geometryType == 'polygon'">
+          <div class="row mb-2">
+            <div class="col">
+              <label for="outlineColor">Outline: </label>
+            </div>
+            <div class="col">
+              <input class="color-input form-control" [value]="polygonProps.outline.color" [style.background]="polygonProps.outline.color" [cpOKButton]="true" [cpSaveClickOutside]="false"
+                [cpOKButtonClass]= "'btn btn-primary btn-xs'" [(colorPicker)]="polygonProps.outline.color" (colorPickerSelect)="setObjectProperty(polygonProps.outline.color, 'outline')"
+                [cpSaveClickOutside]="(true)" [cpAlphaChannel]="('enabled')" [cpOutputFormat]="'rgba'" [cpDialogDisplay]="('popup')" size="10" #outlineColor/>
+            </div>
+          </div>
+
+            <div class="row mb-2">
+              <div class="col">
+                <label for="fillColor">Fill: </label>
+              </div>
+              <div class="col">
+                <input class="color-input form-control" [value]="polygonProps.fill" [style.background]="polygonProps.fill" [cpOKButton]="true" [cpSaveClickOutside]="false"
+                  [cpOKButtonClass]= "'btn btn-primary btn-xs'" [(colorPicker)]="polygonProps.fill" (colorPickerSelect)="setObjectProperty(polygonProps.fill, 'fill')"
+                  [cpSaveClickOutside]="(true)" [cpAlphaChannel]="('enabled')" [cpOutputFormat]="'rgba'" [cpDialogDisplay]="('popup')" size="10" #fillColor/>
+              </div>
+            </div>
+              <app-sizer [label]="dimensionLabel" [(size)]="width"></app-sizer>
+          </div>
+
+
+      <!-- POINT FORM-->
+      <div class="mt-4" *ngIf="geometryType == 'point'">
+        <div class="row mb-2" >
+          <app-select [options]="pointOptions" [(value)]="pointProps.style"></app-select>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col">
+            <label for="outlineColor">Outline: </label>
+          </div>
+          <div class="col">
+            <input class="color-input form-control" [value]="pointProps.outline.color" [style.background]="pointProps.outline.color" [cpOKButton]="true" [cpSaveClickOutside]="false"
+              [cpOKButtonClass]= "'btn btn-primary btn-xs'" [(colorPicker)]="pointProps.outline.color" (colorPickerSelect)="setObjectProperty(pointProps.outline.color, 'outline')"
+              [cpSaveClickOutside]="(true)" [cpAlphaChannel]="('enabled')" [cpOutputFormat]="'rgba'" [cpDialogDisplay]="('popup')" size="10" #outlineColor/>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col">
+            <label for="fillColor">Color: </label>
+          </div>
+          <div class="col">
+            <input class="color-input form-control" [value]="pointProps.color" [style.background]="pointProps.color" [cpOKButton]="true" [cpSaveClickOutside]="false"
+              [cpOKButtonClass]= "'btn btn-primary btn-xs'" [(colorPicker)]="pointProps.color" (colorPickerSelect)="setObjectProperty(pointProps.color, 'fill')"
+              [cpSaveClickOutside]="(true)" [cpAlphaChannel]="('enabled')" [cpOutputFormat]="'rgba'" [cpDialogDisplay]="('popup')" size="10" #fillColor/>
+          </div>
+        </div>
+          <app-sizer [label]="dimensionLabel" [(size)]="width"></app-sizer>
+      </div>
+
+      <!-- POLYLINE FORM-->
+      <div class="mt-4" *ngIf="geometryType == 'polyline'">
+      <div class="row mb-2">
+        <app-select [options]="polylineOptions" [(value)]="polylineProps.style"></app-select>
+      </div>
+      <div class="row mb-2">
+        <div class="col" >
+          <label for="lineColor">Line Color: </label>
+        </div>
+        <div class="col">
+          <input class="color-input form-control" [value]="polylineProps.color" [style.background]="polylineProps.color" [cpOKButton]="true" [cpSaveClickOutside]="false"
+            [cpOKButtonClass]= "'btn btn-primary btn-xs'" [(colorPicker)]="polylineProps.color" (colorPickerSelect)="setObjectProperty(polylineProps.color, 'color')"
+            [cpSaveClickOutside]="(true)" [cpAlphaChannel]="('enabled')" [cpOutputFormat]="'rgba'" [cpDialogDisplay]="('popup')" size="10" #lineColor/>
+        </div>
+      </div>
+          <app-sizer [label]="dimensionLabel" [(size)]="width"></app-sizer>
+        </div>
+      </div>
+
+      <!-- <div class="container mt-4" *ngIf="!simpleRenderer">
+        <p>Changing the symbol of this layer is not currently supported.</p>
+      </div> -->
+
+    <div class="row mt-2" style="position: absolute; bottom: 8px; right: 8px;">
+      <div class="col">
+      <button class="btn btn-primary btn-sm" id="modal-action-button" (click)="actionFunction(geometryType)">
+        Submit
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn btn-danger btn-sm" id="modal-cancel-button" (click)="goBack()">
+        Cancel
+      </button>
+    </div>
+    </div>
+
+</div>

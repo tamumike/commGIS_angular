@@ -1,0 +1,9 @@
+<div class="Panel frame-wrapper" #wrapper *ngIf="visible" [style.top.px]="position.y" [style.left.px]="position.x">
+
+  <div #topBar></div>
+
+  <div class="content-wrapper" [style.height.px]="size.h">
+    <div class="top-bar-wrapper" (mousedown)="startDrag($event)"></div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

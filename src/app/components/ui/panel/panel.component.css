@@ -1,0 +1,35 @@
+.Panel {
+  /* z-index: 10; */
+  /* height: 400px; */
+  min-width: 250px;
+  top: 200px;
+  padding: 0;
+  box-sizing: border-box;
+  position: absolute;
+  /* border-radius: 10px; */
+}
+
+.frame-wrapper {
+  /* position: absolute; */
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.content-wrapper {
+  position: absolute;
+  border-radius: 10px;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: whitesmoke;
+  overflow:visible;
+  padding: 0;
+}
+
+.top-bar-wrapper {
+  margin: 0;
+  min-width: 100%;
+  height: 20px;
+  background-color: #2B69A2;
+  cursor: move;
+  border-radius: 10px 10px 0 0;
+}

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col">
+    <label style="font-size: 14px;" for="sizer">{{label}}:</label>
+  </div>
+  <div class="col">
+    <div class="input-group input-group-sm">
+      <button class="btn btn-primary btn-sm mr-2" (click)="dec()">-</button>
+      <input class="form-control " type="text" maxlength="4" value="{{size}}" #sizer/>
+      <button class="btn btn-primary btn-sm" (click)="inc()">+</button>
+    </div>
+  </div>
+</div>

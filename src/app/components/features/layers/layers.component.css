@@ -1,0 +1,51 @@
+.LayerList {
+  min-width: 100%;
+  padding: 0;
+}
+
+.LayerItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  border: solid grey;
+  border-width: 0 0 1px 0;
+/*   border-radius: 5px; */
+  padding: 0 4px;
+  margin: 0.05em;
+}
+
+.LayerItem:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+}
+
+/* .layer-item-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 1px;
+} */
+
+.layer-item-buttons > button {
+  margin: 1px;
+  max-height: 25px;
+  max-width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layer-item-title {
+  font-size: 12px;
+}
+
+.btn-primary {
+  padding: 1px;
+  font-size: 10px;
+  height: 16px;
+  width: 16px;
+}
+
+

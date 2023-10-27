@@ -1,0 +1,5 @@
+<div class="container">
+  <select class="form-select" [(ngModel)]="value" id="value" name="value" aria-label="Default select example" (change)="change()" #select>
+    <option *ngFor="let option of options" value="{{option}}">{{option.charAt(0).toUpperCase() + option.slice(1, option.length)}}</option>
+  </select>
+</div>

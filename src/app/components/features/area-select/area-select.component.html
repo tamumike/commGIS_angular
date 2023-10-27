@@ -1,0 +1,13 @@
+<div class="AreaSelect container">
+  <p>Select Asset Area</p>
+  <select #areaSelect id="areaSelect" (change)="changeArea()">
+    <option value="default">Choose Area...</option>
+    <option *ngFor="let area of areaOptions" value="{{area.FAC_ID}}">{{area.NAME}}</option>
+  </select>
+  <!-- <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (change)="toggleFilterAllAssets()">
+    <label class="form-check-label" for="flexCheckDefault" style="font-size: 12px;">
+      Filter All Targa Assets
+    </label>
+  </div> -->
+</div>

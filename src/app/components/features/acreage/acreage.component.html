@@ -1,0 +1,72 @@
+<div class="container">
+
+  <h4>Acreage</h4>
+
+  <div class="acreage-form">
+        <div class="row align-items-center m-2 mt-4" style="background-color:whitesmoke;">
+          <div class="col d-inline-flex justify-content-start p-0">
+            <button class="btn btn-primary btn-sm" (click)="addData()"><i class="fa fas fa-solid fa-plus"></i> Add Data</button>
+          </div>
+          <div class="col d-inline-flex justify-content-end p-0">
+            <button class="btn btn-secondary btn-sm" (click)="toggleFeatureTableVisibility()"><i class="fa fas fa-solid fa-table"></i> Table</button>
+        </div>
+      </div>
+
+    <div class="row">
+      <form class="acreage-form" [formGroup]="filterForm">
+        <div class="col d-flex justify-content-center">
+
+          <!-- FIELD -->
+        <select placeholder="Select Field..." class="form-select form-select-sm" id="contractsFilterSelect" style="margin: 2px;" formControlName="field" (change)="getOptions()">
+            <option *ngFor="let field of fields" value="{{field}}">{{field}}</option>
+        </select>
+
+        <!-- COMPARATOR -->
+        <select class="form-select form-select-sm" formControlName="comparator" style="margin: 2px;">
+            <option value="=">Equals</option>
+            <option value="<>">Does Not Equal</option>
+            <option value="LIKE">Contains</option>
+        </select>
+      </div>
+
+      <div class="col d-flex justify-content-center">
+        <div *ngIf="!displayAutocomplete" class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="basic-addon3">Condition</span>
+          <input type="text" class="form-control" formControlName="condition" aria-describedby="basic-addon3">
+        </div>
+
+        <!-- CLAUSE -->
+        <select *ngIf="displayAutocomplete" formControlName="condition" class="form-select form-select-sm mb-3">
+          <option *ngFor="let option of autoCompleteOptions" value="{{option}}">{{option}}</option>
+        </select>
+      </div>
+
+    </form>
+    </div>
+
+      <div class="row align-items-center mb-4" style="background-color:whitesmoke;">
+        <div class="col d-inline-flex justify-content-center p-0">
+          <button class="btn btn-primary btn-sm" (click)="filterData()"><i class="fa fa-regular fa-filter"></i> Add Filter</button>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col d-flex justify-content-center" *ngIf="activeClauses.length > 0">
+            <select name="" class="form-select" multiple id="" size="2">
+              <option *ngFor="let clause of activeClauses" value="{{clause}}">{{clause}}</option>
+            </select>
+        </div>
+       </div>
+      <div *ngIf="activeClauses.length > 0" class="row align-items-center m-4 p-0">
+        <div class="col d-inline-flex justify-content-center p-0">
+          <button class="btn btn-secondary btn-sm" (click)="clearFilters()"><i class="fa fas fa-window-close"></i> Clear All</button>
+        </div>
+        <div class="col d-flex justify-content-center p-0">
+          <button class="btn btn-success btn-sm" (click)="addAsNewLayer()"><i class="fa fas fa-solid fa-plus"></i> Add Layer</button>
+        </div>
+      </div>
+  </div>
+
+
+
+  <div class="FeatureTable" #featureTableNode *ngIf="isFeatureTableVisible"></div>
+</div>

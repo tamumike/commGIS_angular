@@ -1,0 +1,15 @@
+<div class="auto-complete-box">
+  <form class="example-form">
+    <mat-form-field>
+      <input matInput class="form-controls" placeholder="State" maxlength="15" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+      <mat-autocomplete class="form-control" #auto="matAutocomplete">
+        <mat-option class="form-control" *ngFor="let state of filteredStates | async" [value]="state.name">
+          <span>{{ state.name }}</span> |
+          <small>Population: {{state.population}}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <br />
+  </form>
+</div>
